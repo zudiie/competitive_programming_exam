@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
@@ -7,12 +7,14 @@ int main()
     int guessCount = 1;
     int guess = 500;
     int l = 1;
-    int r = 1000;
+    int r = 1001;
 
-    cout << guess << endl;
-    while (true){
-        string input;
-        cin >> input;
+    cout << guess << '\n';
+    string input;
+    while (cin >> input){
+        if (guessCount == 10){
+            return EXIT_SUCCESS;
+        }
         if (input == "correct"){
             return EXIT_SUCCESS;
         } else if (input == "higher"){
@@ -22,7 +24,7 @@ int main()
         }
         guess = (l + r) / 2;
         guessCount++;
-        cout << guess << endl;
+        cout << guess << '\n';
     }
 
     return EXIT_SUCCESS;
