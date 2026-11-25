@@ -1,15 +1,23 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-// the second testcase dos not make sense, by their rules the answer should
-// be 7930 which i get but they get much lower
+
 int cM = 1, cS = 0;
 
 void checkMultiplier(){
-    if (cS < 2 && cM == 1) cM = 1;
-    else if (cS >= 2 && cM == 1) cM = 2;
-    else if (cS >= 4 && cM == 2) cM = 4;
-    else if (cS >= 8 && cM == 4)cM = 8;
+    if (cS < 2 && cM == 1){
+        cM = 1; cS = 1;
+    } 
+    else if (cS >= 2 && cM == 1){
+    
+      cM = 2; cS = 0;
+    }
+    else if (cS >= 4 && cM == 2) {
+        cM = 4; cS = 0;
+    }
+    else if (cS >= 8 && cM == 4){
+        cM = 8; cS = 0;
+    }
 }
 
 void reduceMultiplier(){
@@ -27,7 +35,7 @@ int main(){
             cS++;
             checkMultiplier();
             sum += score * cM;
-            cout << "score: " << score << " cS: " << cS << " cM: " << cM << " sum: " << sum << '\n';
+
         } else {
             reduceMultiplier();
             cS = 0;
