@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+// the second testcase dos not make sense, by their rules the answer should
+// be 7930 which i get but they get much lower
 int cM = 1, cS = 0;
 
 void checkMultiplier(){
